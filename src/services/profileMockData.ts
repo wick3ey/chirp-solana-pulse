@@ -1,5 +1,5 @@
 
-import { Profile } from "@/models/Profile";
+import { Profile, ProfileTab } from "@/models/Profile";
 
 export const mockProfiles: Profile[] = [
   {

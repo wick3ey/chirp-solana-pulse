@@ -2,8 +2,8 @@
 import React from "react";
 import { Profile } from "@/models/Profile";
 import ProfileAssets from "./ProfileAssets";
-import { TweetCard } from "@/components/TweetCard";
-import { cryptoTweets } from "@/services/mockData";
+import TweetCard from "@/components/TweetCard";
+import { tweets } from "@/services/mockData";
 
 interface ProfileContentProps {
   profile: Profile;
@@ -12,14 +12,14 @@ interface ProfileContentProps {
 
 const ProfileContent: React.FC<ProfileContentProps> = ({ profile, activeTab }) => {
   // Filter tweets by the current user's username
-  const userTweets = cryptoTweets.filter(
+  const userTweets = tweets.filter(
     tweet => {
       if (activeTab === "posts") {
-        return tweet.author.username === profile.username && !tweet.isRetweet;
+        return tweet.user.username === profile.username && !tweet.isRetweet;
       } else if (activeTab === "replies") {
-        return tweet.author.username === profile.username && tweet.inReplyTo !== null;
+        return tweet.user.username === profile.username && tweet.inReplyTo !== null;
       } else if (activeTab === "media") {
-        return tweet.author.username === profile.username && tweet.images && tweet.images.length > 0;
+        return tweet.user.username === profile.username && tweet.images && tweet.images.length > 0;
       } else if (activeTab === "likes") {
         // Just showing some tweets in the likes tab for demonstration
         return tweet.likes > 50;
