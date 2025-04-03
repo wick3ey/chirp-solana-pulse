@@ -1,10 +1,15 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import MarketStats from './MarketStats';
 import NewsSection from './NewsSection';
 import WhoToFollow from './WhoToFollow';
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { getProfileByUsername } from '@/services/profileMockData';
 
 const RightSidebar: React.FC = () => {
+  const defaultProfile = getProfileByUsername("solana_chad");
+  
   return (
     <div className="w-[350px] h-screen overflow-auto pb-8 pr-4 hide-scrollbar">
       <div className="sticky top-20">
@@ -24,6 +29,35 @@ const RightSidebar: React.FC = () => {
               </div>
             </div>
           </div>
+          
+          {defaultProfile && (
+            <Link to={`/profile/${defaultProfile.username}`} className="glass rounded-xl p-4 mb-4 block hover:bg-white/10 transition-colors">
+              <div className="flex items-center gap-3">
+                <Avatar className="w-12 h-12 border-2 border-primary/20">
+                  <AvatarImage src={defaultProfile.profileImage} />
+                  <AvatarFallback>{defaultProfile.displayName.charAt(0)}</AvatarFallback>
+                </Avatar>
+                <div>
+                  <h3 className="font-semibold">{defaultProfile.displayName}</h3>
+                  <p className="text-sm text-muted-foreground">@{defaultProfile.username}</p>
+                </div>
+              </div>
+              <div className="mt-2 text-sm">
+                <p className="line-clamp-2 text-muted-foreground">{defaultProfile.bio}</p>
+              </div>
+              <div className="mt-2 flex gap-4 text-xs">
+                <div>
+                  <span className="font-semibold">{defaultProfile.followingCount}</span>{" "}
+                  <span className="text-muted-foreground">Following</span>
+                </div>
+                <div>
+                  <span className="font-semibold">{defaultProfile.followersCount}</span>{" "}
+                  <span className="text-muted-foreground">Followers</span>
+                </div>
+              </div>
+            </Link>
+          )}
+          
           <MarketStats />
           <NewsSection />
           <WhoToFollow />

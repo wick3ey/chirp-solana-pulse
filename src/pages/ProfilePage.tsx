@@ -1,0 +1,68 @@
+
+import React, { useState } from "react";
+import { useParams } from "react-router-dom";
+import { getProfileByUsername, profileTabs } from "@/services/profileMockData";
+import ProfileHeader from "@/components/profile/ProfileHeader";
+import ProfileBio from "@/components/profile/ProfileBio";
+import ProfileTabs from "@/components/profile/ProfileTabs";
+import ProfileContent from "@/components/profile/ProfileContent";
+import { useToast } from "@/hooks/use-toast";
+import { ChevronLeft } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+
+const ProfilePage: React.FC = () => {
+  const { username } = useParams<{ username: string }>();
+  const profile = getProfileByUsername(username || "");
+  const [activeTab, setActiveTab] = useState("posts");
+  const { toast } = useToast();
+  const navigate = useNavigate();
+
+  if (!profile) {
+    return (
+      <div className="flex flex-col items-center justify-center h-screen">
+        <h1 className="text-2xl font-bold mb-4">Profile not found</h1>
+        <button 
+          onClick={() => navigate("/")}
+          className="flex items-center gap-2 bg-primary hover:bg-primary/90 text-white rounded-full px-6 py-3"
+        >
+          <ChevronLeft className="w-5 h-5" />
+          Back to Home
+        </button>
+      </div>
+    );
+  }
+
+  const handleFollow = () => {
+    toast({
+      title: profile.isFollowing ? "Unfollowed" : "Followed",
+      description: profile.isFollowing 
+        ? `You unfollowed ${profile.displayName}` 
+        : `You are now following ${profile.displayName}`,
+    });
+  };
+
+  return (
+    <div className="flex min-h-screen bg-background">
+      <div className="flex-1 mx-auto max-w-6xl">
+        <div className="grid grid-cols-12 gap-4">
+          <div className="col-span-12">
+            <ProfileHeader 
+              profile={profile} 
+              onFollow={handleFollow} 
+              onBack={() => navigate("/")}
+            />
+            <ProfileBio profile={profile} />
+            <ProfileTabs 
+              tabs={profileTabs}
+              activeTab={activeTab}
+              onTabChange={(tab) => setActiveTab(tab)}
+            />
+            <ProfileContent profile={profile} activeTab={activeTab} />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ProfilePage;
