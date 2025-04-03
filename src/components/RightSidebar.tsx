@@ -6,7 +6,7 @@ import WhoToFollow from './WhoToFollow';
 
 const RightSidebar: React.FC = () => {
   return (
-    <div className="w-[350px] h-screen overflow-auto pb-8 pr-4 scrollbar-none">
+    <div className="w-[350px] h-screen overflow-auto pb-8 pr-4 hide-scrollbar">
       <div className="sticky top-20">
         <div className="relative w-full">
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent opacity-75 pointer-events-none"></div>
@@ -14,7 +14,7 @@ const RightSidebar: React.FC = () => {
             <div className="relative">
               <input
                 type="text"
-                placeholder="Search Twitter"
+                placeholder="Search SolanaPulse"
                 className="w-full bg-muted/50 text-foreground rounded-full py-2 px-4 outline-none focus:ring-2 focus:ring-primary"
               />
               <div className="absolute right-3 top-2 text-muted-foreground">

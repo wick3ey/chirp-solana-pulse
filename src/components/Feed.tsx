@@ -55,7 +55,7 @@ const Feed: React.FC = () => {
             <Button 
               size="sm" 
               variant={activeFilter === 'hot' ? 'default' : 'outline'} 
-              className={`flex gap-1 ${activeFilter === 'hot' ? 'bg-solana-purple' : ''}`}
+              className={`flex gap-1 flex-shrink-0 ${activeFilter === 'hot' ? 'bg-solana-purple' : ''}`}
               onClick={() => setActiveFilter('hot')}
             >
               <Flame className="h-4 w-4" />
@@ -64,7 +64,7 @@ const Feed: React.FC = () => {
             <Button 
               size="sm"
               variant={activeFilter === 'trending' ? 'default' : 'outline'}
-              className={`flex gap-1 ${activeFilter === 'trending' ? 'bg-solana-purple' : ''}`}
+              className={`flex gap-1 flex-shrink-0 ${activeFilter === 'trending' ? 'bg-solana-purple' : ''}`}
               onClick={() => setActiveFilter('trending')}
             >
               <TrendingUp className="h-4 w-4" />
@@ -73,7 +73,7 @@ const Feed: React.FC = () => {
             <Button 
               size="sm"
               variant={activeFilter === 'latest' ? 'default' : 'outline'}
-              className={`flex gap-1 ${activeFilter === 'latest' ? 'bg-solana-purple' : ''}`}
+              className={`flex gap-1 flex-shrink-0 ${activeFilter === 'latest' ? 'bg-solana-purple' : ''}`}
               onClick={() => setActiveFilter('latest')}
             >
               <Clock className="h-4 w-4" />
@@ -82,7 +82,7 @@ const Feed: React.FC = () => {
             <Button 
               size="sm"
               variant={activeFilter === 'media' ? 'default' : 'outline'}
-              className={`flex gap-1 ${activeFilter === 'media' ? 'bg-solana-purple' : ''}`}
+              className={`flex gap-1 flex-shrink-0 ${activeFilter === 'media' ? 'bg-solana-purple' : ''}`}
               onClick={() => setActiveFilter('media')}
             >
               <GalleryVertical className="h-4 w-4" />

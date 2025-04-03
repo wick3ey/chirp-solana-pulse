@@ -11,7 +11,7 @@ const Index: React.FC = () => {
     <div className="min-h-screen bg-background text-foreground flex flex-col">
       <Header />
       
-      <main className="flex-1 container flex gap-6 pt-4 pb-16">
+      <main className="flex-1 container flex gap-6 pt-4 pb-20 md:pb-16">
         {/* Left sidebar */}
         <div className="hidden md:block w-64 shrink-0">
           <div className="sticky top-20 card-gradient rounded-xl p-4 animate-entrance">
@@ -62,7 +62,7 @@ const Index: React.FC = () => {
         </div>
         
         {/* Main content */}
-        <div className="flex-1 animate-entrance" style={{animationDelay: '0.1s'}}>
+        <div className="flex-1 animate-entrance mx-auto" style={{animationDelay: '0.1s'}}>
           <Feed />
         </div>
         

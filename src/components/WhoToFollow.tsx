@@ -36,9 +36,10 @@ const WhoToFollow: React.FC = () => {
                   src={user.avatar}
                   alt={user.name}
                   className="w-full h-full object-cover"
+                  loading="lazy"
                 />
               </div>
-              <div className="overflow-hidden">
+              <div className="overflow-hidden max-w-[120px]">
                 <div className="font-medium truncate">{user.name}</div>
                 <div className="text-muted-foreground text-sm truncate">@{user.username}</div>
               </div>

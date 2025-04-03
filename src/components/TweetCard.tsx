@@ -31,7 +31,7 @@ const TweetCard: React.FC<TweetCardProps> = ({ tweet }) => {
         </div>
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-1.5">
-            <span className="font-bold truncate">{tweet.user.name}</span>
+            <span className="font-bold truncate max-w-[120px]">{tweet.user.name}</span>
             {tweet.user.verified && (
               <span className="flex-shrink-0">
                 <svg className="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 24 24">
@@ -39,7 +39,7 @@ const TweetCard: React.FC<TweetCardProps> = ({ tweet }) => {
                 </svg>
               </span>
             )}
-            <span className="text-muted-foreground text-sm truncate">@{tweet.user.username}</span>
+            <span className="text-muted-foreground text-sm truncate max-w-[120px]">@{tweet.user.username}</span>
             <span className="text-muted-foreground text-sm">·</span>
             <span className="text-muted-foreground text-sm">{formatTimeAgo(tweet.createdAt)}</span>
           </div>
@@ -52,6 +52,7 @@ const TweetCard: React.FC<TweetCardProps> = ({ tweet }) => {
                 src={tweet.images[0]} 
                 alt="Tweet image" 
                 className="w-full h-auto object-cover max-h-80"
+                loading="lazy"
               />
             </div>
           )}

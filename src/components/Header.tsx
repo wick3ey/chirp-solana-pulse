@@ -25,28 +25,28 @@ const Header = () => {
         <div className="hidden md:flex items-center gap-4">
           <Button variant="ghost" size="icon" className="text-foreground/80 hover:text-primary hover:bg-primary/10 relative group">
             <Home className="h-5 w-5" />
-            <span className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 bg-background border border-border px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">Home</span>
+            <span className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 bg-background border border-border px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity text-xs">Home</span>
           </Button>
           <Button variant="ghost" size="icon" className="text-foreground/80 hover:text-primary hover:bg-primary/10 relative group">
             <Search className="h-5 w-5" />
-            <span className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 bg-background border border-border px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">Search</span>
+            <span className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 bg-background border border-border px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity text-xs">Search</span>
           </Button>
           <Button variant="ghost" size="icon" className="text-foreground/80 hover:text-primary hover:bg-primary/10 relative group">
             <Bell className="h-5 w-5" />
-            <span className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 bg-background border border-border px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">Notifications</span>
+            <span className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 bg-background border border-border px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity text-xs">Notifications</span>
             <span className="absolute top-1 right-1 h-2 w-2 bg-solana-purple rounded-full"></span>
           </Button>
           <Button variant="ghost" size="icon" className="text-foreground/80 hover:text-primary hover:bg-primary/10 relative group">
             <MessageCircle className="h-5 w-5" />
-            <span className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 bg-background border border-border px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">Messages</span>
+            <span className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 bg-background border border-border px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity text-xs">Messages</span>
           </Button>
           <Button variant="ghost" size="icon" className="text-foreground/80 hover:text-primary hover:bg-primary/10 relative group">
             <BarChart2 className="h-5 w-5" />
-            <span className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 bg-background border border-border px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">Analytics</span>
+            <span className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 bg-background border border-border px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity text-xs">Analytics</span>
           </Button>
           <Button variant="ghost" size="icon" className="text-foreground/80 hover:text-primary hover:bg-primary/10 relative group">
             <User className="h-5 w-5" />
-            <span className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 bg-background border border-border px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">Profile</span>
+            <span className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 bg-background border border-border px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity text-xs">Profile</span>
           </Button>
         </div>
         
@@ -67,7 +67,7 @@ const Header = () => {
       
       {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-background border-b border-border animate-slide-in-right">
+        <div className="md:hidden bg-background border-b border-border animate-slide-up">
           <div className="flex flex-col p-4">
             <Button variant="ghost" className="justify-start" asChild>
               <a href="/" className="flex items-center">
