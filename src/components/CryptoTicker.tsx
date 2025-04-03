@@ -7,10 +7,6 @@ const CryptoTicker: React.FC = () => {
   return (
     <div className="w-full bg-gradient-to-r from-background to-background/80 backdrop-blur-md py-1.5 overflow-hidden border-b border-border/30">
       <div className="container flex items-center gap-3">
-        <div className="flex items-center text-xs text-primary font-semibold gap-1">
-          <Sparkles className="h-3 w-3 text-solana-purple" />
-          <span>MARKET:</span>
-        </div>
         <div className="flex animate-ticker whitespace-nowrap overflow-hidden">
           {[...cryptoTokens, ...cryptoTokens].map((token, index) => (
             <div key={`${token.id}-${index}`} className="flex items-center px-4 py-0.5 hover:bg-white/5 rounded-md transition-colors cursor-pointer group">
