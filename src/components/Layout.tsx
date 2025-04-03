@@ -1,5 +1,5 @@
-
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import RightSidebar from '@/components/RightSidebar';
 import { Button } from '@/components/ui/button';
@@ -23,14 +23,16 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             
             <div className="mt-4 space-y-1">
               <Button variant="ghost" className="w-full justify-start hover:bg-white/10 group" asChild>
-                <a href="/">
+                <Link to="/">
                   <Home className="w-5 h-5 mr-3 text-solana-purple group-hover:text-solana-blue transition-colors" />
                   <span className="group-hover:text-white transition-colors">Home</span>
-                </a>
+                </Link>
               </Button>
-              <Button variant="ghost" className="w-full justify-start hover:bg-white/10 group">
-                <Search className="w-5 h-5 mr-3 group-hover:text-solana-blue transition-colors" />
-                <span className="group-hover:text-white transition-colors">Explore</span>
+              <Button variant="ghost" className="w-full justify-start hover:bg-white/10 group" asChild>
+                <Link to="/explore">
+                  <Search className="w-5 h-5 mr-3 group-hover:text-solana-blue transition-colors" />
+                  <span className="group-hover:text-white transition-colors">Explore</span>
+                </Link>
               </Button>
               <Button variant="ghost" className="w-full justify-start hover:bg-white/10 group">
                 <Bell className="w-5 h-5 mr-3 group-hover:text-solana-blue transition-colors" />
@@ -81,12 +83,14 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <div className="fixed bottom-0 left-0 right-0 bg-background/90 backdrop-blur-lg border-t border-border md:hidden z-40">
         <div className="flex justify-around py-2">
           <Button variant="ghost" size="icon" className="text-foreground/80" asChild>
-            <a href="/">
+            <Link to="/">
               <Home className="h-6 w-6" />
-            </a>
+            </Link>
           </Button>
-          <Button variant="ghost" size="icon" className="text-foreground/80">
-            <Search className="h-6 w-6" />
+          <Button variant="ghost" size="icon" className="text-foreground/80" asChild>
+            <Link to="/explore">
+              <Search className="h-6 w-6" />
+            </Link>
           </Button>
           <Button variant="ghost" size="icon" className="text-foreground/80">
             <Bell className="h-6 w-6" />
