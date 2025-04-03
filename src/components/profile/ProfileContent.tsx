@@ -15,9 +15,11 @@ const ProfileContent: React.FC<ProfileContentProps> = ({ profile, activeTab }) =
   const userTweets = tweets.filter(
     tweet => {
       if (activeTab === "posts") {
-        return tweet.user.username === profile.username && !tweet.isRetweet;
+        // Since isRetweet doesn't exist, we'll just show all tweets from the user
+        return tweet.user.username === profile.username;
       } else if (activeTab === "replies") {
-        return tweet.user.username === profile.username && tweet.inReplyTo !== null;
+        // Since inReplyTo doesn't exist, we'll just show tweets with comments
+        return tweet.user.username === profile.username && tweet.comments > 0;
       } else if (activeTab === "media") {
         return tweet.user.username === profile.username && tweet.images && tweet.images.length > 0;
       } else if (activeTab === "likes") {
