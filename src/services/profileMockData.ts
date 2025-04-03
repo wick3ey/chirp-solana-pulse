@@ -1,4 +1,3 @@
-
 import { Profile, ProfileTab } from "@/models/Profile";
 
 export const mockProfiles: Profile[] = [
@@ -8,11 +7,12 @@ export const mockProfiles: Profile[] = [
     displayName: "Solana Chad",
     bio: "Building the future of finance on Solana | NFT collector | DeFi enthusiast | Not financial advice",
     headerImage: "https://images.unsplash.com/photo-1639322537504-6427a16b0a28?q=80&w=1200&auto=format&fit=crop",
-    profileImage: "https://images.unsplash.com/photo-1639149888905-fb39731f2e6c?q=80&w=400&auto=format&fit=crop",
+    profileImage: "https://i.seadn.io/gae/B47_wazXtRL0XYl0oC_L-U1KNfyIC59uf959MUmSHMXtnoiyPDGLh5S4mfohXdFVsNnYl5OcN0CYZL4UGvt9nhliM3Q1_QnUNK0?auto=format&dpr=1&w=1000",
     followersCount: 15782,
     followingCount: 892,
     isFollowing: false,
     isVerified: true,
+    isNftProfilePicture: true,
     walletAddress: "8ZnfRxSdYYyG1PtGpFtwjtd1zGGfGzxpvrkNyjgQhd7K",
     walletBalance: {
       sol: 284.35,
@@ -92,11 +92,12 @@ export const mockProfiles: Profile[] = [
     displayName: "DeFi Queen ✨",
     bio: "DeFi researcher | Yield farmer | Teaching women about crypto | Tips: donramon.sol",
     headerImage: "https://images.unsplash.com/photo-1642104704074-907c0698cbd9?q=80&w=1200&auto=format&fit=crop",
-    profileImage: "https://images.unsplash.com/photo-1564460576398-ef55d99548b2?q=80&w=400&auto=format&fit=crop",
+    profileImage: "https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://arweave.net/aU_QhLWgVpOlUjVNKLEiL0_frZMIekxc-rYzI9oF7F8?ext=png",
     followersCount: 8543,
     followingCount: 456,
     isFollowing: true,
     isVerified: false,
+    isNftProfilePicture: true,
     walletAddress: "7ZnfRxSdYYyG1PtGpFtujjtd1zGGfGzxpvrkNyjgQhd7K",
     walletBalance: {
       sol: 124.75,

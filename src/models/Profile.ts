@@ -10,6 +10,7 @@ export interface Profile {
   followingCount: number;
   isFollowing: boolean;
   isVerified: boolean;
+  isNftProfilePicture?: boolean; // Added this flag to identify NFT profile pictures
   walletAddress: string;
   walletBalance: {
     sol: number;

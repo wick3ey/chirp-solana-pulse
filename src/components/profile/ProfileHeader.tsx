@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Profile } from "@/models/Profile";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import {
   ChevronLeft,
   MoreHorizontal,
@@ -10,7 +11,8 @@ import {
   Bell,
   BellOff,
   Mail,
-  CheckCircle2
+  CheckCircle2,
+  Image
 } from "lucide-react";
 import {
   DropdownMenu,
@@ -70,7 +72,7 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ profile, onFollow, onBack
 
       {/* Profile picture and action buttons */}
       <div className="px-4 flex justify-between items-start relative">
-        {/* Profile Picture */}
+        {/* Profile Picture with NFT verification if applicable */}
         <div className="relative -mt-20">
           <Avatar className="w-36 h-36 border-4 border-background rounded-full">
             <AvatarImage src={profile.profileImage} alt={profile.displayName} />
@@ -78,6 +80,23 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ profile, onFollow, onBack
               {profile.displayName.charAt(0)}
             </AvatarFallback>
           </Avatar>
+          
+          {/* NFT Verification Badge */}
+          {profile.isNftProfilePicture && (
+            <div className="absolute -bottom-1 -right-1">
+              <Badge className="bg-gradient-to-r from-blue-600 to-purple-600 text-white border-2 border-background flex items-center gap-1 px-2 py-1 rounded-full">
+                <Image className="h-3 w-3" />
+                <span className="text-xs font-medium">NFT</span>
+              </Badge>
+            </div>
+          )}
+          
+          {/* Regular Verification Badge */}
+          {profile.isVerified && !profile.isNftProfilePicture && (
+            <div className="absolute bottom-0 right-0 bg-primary text-white rounded-full p-1 border-2 border-background">
+              <CheckCircle2 className="h-5 w-5" />
+            </div>
+          )}
           
           {/* Edit profile overlay - only visible in "edit mode" */}
           <div className="absolute inset-0 bg-black/30 rounded-full opacity-0 hover:opacity-100 transition-opacity flex justify-center items-center">
@@ -102,6 +121,11 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ profile, onFollow, onBack
               <DropdownMenuItem>
                 <Mail className="mr-2 h-4 w-4" /> Send message
               </DropdownMenuItem>
+              {profile.nfts && profile.nfts.length > 0 && (
+                <DropdownMenuItem>
+                  <Image className="mr-2 h-4 w-4" /> Set NFT as Profile Picture
+                </DropdownMenuItem>
+              )}
               <DropdownMenuItem className="text-destructive">
                 Block @{profile.username}
               </DropdownMenuItem>
