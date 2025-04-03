@@ -22,7 +22,7 @@ const Feed: React.FC = () => {
       case 'latest':
         return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
       case 'media':
-        return b.image ? -1 : a.image ? 1 : 0;
+        return b.images ? -1 : a.images ? 1 : 0;
       default:
         return 0;
     }
