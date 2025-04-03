@@ -9,6 +9,7 @@ import ProfileContent from "@/components/profile/ProfileContent";
 import { useToast } from "@/hooks/use-toast";
 import { ChevronLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import Layout from "@/components/Layout";
 
 const ProfilePage: React.FC = () => {
   const { username } = useParams<{ username: string }>();
@@ -42,26 +43,22 @@ const ProfilePage: React.FC = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-background">
-      <div className="flex-1 mx-auto max-w-6xl">
-        <div className="grid grid-cols-12 gap-4">
-          <div className="col-span-12">
-            <ProfileHeader 
-              profile={profile} 
-              onFollow={handleFollow} 
-              onBack={() => navigate("/")}
-            />
-            <ProfileBio profile={profile} />
-            <ProfileTabs 
-              tabs={profileTabs}
-              activeTab={activeTab}
-              onTabChange={(tab) => setActiveTab(tab)}
-            />
-            <ProfileContent profile={profile} activeTab={activeTab} />
-          </div>
-        </div>
+    <Layout>
+      <div className="w-full">
+        <ProfileHeader 
+          profile={profile} 
+          onFollow={handleFollow} 
+          onBack={() => navigate("/")}
+        />
+        <ProfileBio profile={profile} />
+        <ProfileTabs 
+          tabs={profileTabs}
+          activeTab={activeTab}
+          onTabChange={(tab) => setActiveTab(tab)}
+        />
+        <ProfileContent profile={profile} activeTab={activeTab} />
       </div>
-    </div>
+    </Layout>
   );
 };
 
