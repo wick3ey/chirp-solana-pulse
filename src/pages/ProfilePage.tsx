@@ -1,7 +1,7 @@
 
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import { getProfileByUsername, profileTabs } from "@/services/profileMockData";
+import { getProfileByUsername } from "@/services/profileMockData";
 import ProfileHeader from "@/components/profile/ProfileHeader";
 import ProfileBio from "@/components/profile/ProfileBio";
 import ProfileTabs from "@/components/profile/ProfileTabs";
@@ -10,6 +10,7 @@ import { useToast } from "@/hooks/use-toast";
 import { ChevronLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Layout from "@/components/Layout";
+import { ProfileTab } from "@/models/Profile";
 
 const ProfilePage: React.FC = () => {
   const { username } = useParams<{ username: string }>();
@@ -17,6 +18,15 @@ const ProfilePage: React.FC = () => {
   const [activeTab, setActiveTab] = useState("posts");
   const { toast } = useToast();
   const navigate = useNavigate();
+
+  // Define profile tabs including the new Wallet tab
+  const profileTabs: ProfileTab[] = [
+    { id: "1", label: "Posts", value: "posts" },
+    { id: "2", label: "Replies", value: "replies" },
+    { id: "3", label: "Media", value: "media" },
+    { id: "4", label: "Likes", value: "likes" },
+    { id: "5", label: "Wallet", value: "wallet" }
+  ];
 
   if (!profile) {
     return (

@@ -39,6 +39,15 @@ const ProfileContent: React.FC<ProfileContentProps> = ({ profile, activeTab }) =
     </div>
   );
 
+  // If the wallet tab is selected, show wallet content
+  if (activeTab === "wallet") {
+    return (
+      <div className="px-4 py-6">
+        <ProfileAssets profile={profile} />
+      </div>
+    );
+  }
+
   return (
     <div className="grid grid-cols-12 gap-6 mt-4 px-4 pb-20">
       {/* Left column: Tweets */}

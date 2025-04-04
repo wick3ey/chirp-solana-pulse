@@ -18,7 +18,7 @@ const ProfileTabs: React.FC<ProfileTabsProps> = ({ tabs, activeTab, onTabChange 
             key={tab.id}
             onClick={() => onTabChange(tab.value)}
             className={cn(
-              "px-6 py-4 font-medium text-sm transition-colors relative",
+              "px-4 py-3 font-medium text-sm transition-colors relative whitespace-nowrap",
               activeTab === tab.value
                 ? "text-foreground"
                 : "text-muted-foreground hover:text-foreground hover:bg-muted/30"
