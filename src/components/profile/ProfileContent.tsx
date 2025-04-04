@@ -15,10 +15,8 @@ const ProfileContent: React.FC<ProfileContentProps> = ({ profile, activeTab }) =
   const userTweets = tweets.filter(
     tweet => {
       if (activeTab === "posts") {
-        // Since isRetweet doesn't exist, we'll just show all tweets from the user
         return tweet.user.username === profile.username;
       } else if (activeTab === "replies") {
-        // Since inReplyTo doesn't exist, we'll just show tweets with comments
         return tweet.user.username === profile.username && tweet.comments > 0;
       } else if (activeTab === "media") {
         return tweet.user.username === profile.username && tweet.images && tweet.images.length > 0;
@@ -63,12 +61,14 @@ const ProfileContent: React.FC<ProfileContentProps> = ({ profile, activeTab }) =
         )}
       </div>
       
-      {/* Right column: Assets and other info */}
-      <div className="hidden md:block md:col-span-4">
-        <div className="space-y-4 sticky top-20">
-          <ProfileAssets profile={profile} />
+      {/* Right column: Only show assets in non-wallet tabs */}
+      {activeTab !== "wallet" && (
+        <div className="hidden md:block md:col-span-4">
+          <div className="space-y-4 sticky top-20">
+            <ProfileAssets profile={profile} />
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

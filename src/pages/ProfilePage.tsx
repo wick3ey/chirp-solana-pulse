@@ -19,7 +19,7 @@ const ProfilePage: React.FC = () => {
   const { toast } = useToast();
   const navigate = useNavigate();
 
-  // Define profile tabs including the new Wallet tab
+  // Define profile tabs with the Wallet tab
   const profileTabs: ProfileTab[] = [
     { id: "1", label: "Posts", value: "posts" },
     { id: "2", label: "Replies", value: "replies" },
